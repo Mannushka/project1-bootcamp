@@ -1,7 +1,7 @@
 import React from "react";
 import UserInput from "./UserInput";
-import Items from "./Items";
 import { Button } from "react-bootstrap";
+import Item from "./Item";
 
 export default class ItemsList extends React.Component {
   constructor(props) {
@@ -53,6 +53,7 @@ export default class ItemsList extends React.Component {
     localStorage.removeItem("itemsList");
     this.setState({ itemsList: [] });
   };
+
   componentDidMount() {
     const itemsList = localStorage.getItem("itemsList");
     if (itemsList) {
@@ -69,12 +70,17 @@ export default class ItemsList extends React.Component {
           <UserInput addItem={this.addItem} />
         </div>
         <div>
-          <Items
-            itemsList={this.state.itemsList}
-            checkItem={this.checkItem}
-            updateItem={this.updateItem}
-            deleteItem={this.deleteItem}
-          />
+          {this.state.itemsList.map((item, key) => (
+            <Item
+              key={key}
+              id={item.key}
+              name={item.name}
+              isChecked={item.isChecked}
+              checkItem={this.checkItem}
+              updateItem={this.updateItem}
+              deleteItem={() => this.deleteItem(key)}
+            />
+          ))}
         </div>
         <div className="text-center">
           {this.state.itemsList.length > 0 && (
