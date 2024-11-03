@@ -15,6 +15,7 @@ export default class UserInput extends React.Component {
   handleChange = (event) => {
     this.setState({ inputValue: event.target.value });
   };
+
   handleSubmit = (event) => {
     event.preventDefault();
 
@@ -25,6 +26,7 @@ export default class UserInput extends React.Component {
       });
     }
   };
+
   render() {
     return (
       <div>
