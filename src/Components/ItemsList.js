@@ -10,27 +10,14 @@ export default class ItemsList extends React.Component {
       itemsList: [],
     };
   }
-  //We need to be able to add items to the list
-  //Items are added in the UserInput component: when user inputs something into the input field and then clicks "add item" , the item should get added into the itemsArray
-  //Each item can be deleted
-  //Each item can be changed
-  //Each item can be edited
-  //Each item has checkbox, once the user got the item, they may tick the checkbox and the item will get crossed out
 
-  //1) adding items logic
-  //this function is passed as props to UserInput
   addItem = (inputValue) => {
-    let newItem = { name: " ", key: " ", isChecked: false };
-    newItem.name = inputValue;
-    newItem.key = Date.now();
-    //suggested change: const newItem = { name: inputValue, key: Date.now(), isChecked: false }
-    let newItemsList = [...this.state.itemsList, newItem]; // should be const
+    const newItem = { name: inputValue, key: Date.now(), isChecked: false };
+    const newItemsList = [...this.state.itemsList, newItem];
     this.setState({ itemsList: newItemsList });
     localStorage.setItem("itemsList", JSON.stringify(newItemsList));
   };
 
-  //2) deleting items logic
-  //this function is passed as props to Items
   deleteItem = (index) => {
     const itemsList = [...this.state.itemsList];
     itemsList.splice(index, 1);
@@ -38,8 +25,6 @@ export default class ItemsList extends React.Component {
     localStorage.setItem("itemsList", JSON.stringify(itemsList));
   };
 
-  //3) editing items logic
-  //this function is passed as props to Items
   updateItem = (name, key) => {
     const itemsList = [...this.state.itemsList];
     const newItemsList = itemsList.map((item) => {
@@ -52,8 +37,6 @@ export default class ItemsList extends React.Component {
     localStorage.setItem("itemsList", JSON.stringify(itemsList));
   };
 
-  //4) crossing items out logic
-  //this function is passed as props to Items
   checkItem = (key) => {
     const itemsList = [...this.state.itemsList];
     const newItemsList = itemsList.map((item) => {
@@ -65,7 +48,7 @@ export default class ItemsList extends React.Component {
     this.setState({ itemsList: newItemsList });
     localStorage.setItem("itemsList", JSON.stringify(itemsList));
   };
-  //5) logic to clear all items
+
   deleteAllItems = () => {
     localStorage.removeItem("itemsList");
     this.setState({ itemsList: [] });
