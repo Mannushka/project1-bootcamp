@@ -20,12 +20,11 @@ export default class ItemsList extends React.Component {
   //1) adding items logic
   //this function is passed as props to UserInput
   addItem = (inputValue) => {
-    // const currentDate = new Date().toDateString();
-    // console.log(currentDate);
     let newItem = { name: " ", key: " ", isChecked: false };
     newItem.name = inputValue;
     newItem.key = Date.now();
-    let newItemsList = [...this.state.itemsList, newItem];
+    //suggested change: const newItem = { name: inputValue, key: Date.now(), isChecked: false }
+    let newItemsList = [...this.state.itemsList, newItem]; // should be const
     this.setState({ itemsList: newItemsList });
     localStorage.setItem("itemsList", JSON.stringify(newItemsList));
   };
@@ -42,26 +41,28 @@ export default class ItemsList extends React.Component {
   //3) editing items logic
   //this function is passed as props to Items
   updateItem = (name, key) => {
-    const itemsList = this.state.itemsList.map((item) => {
+    const itemsList = [...this.state.itemsList];
+    const newItemsList = itemsList.map((item) => {
       if (item.key === key) {
         item.name = name;
       }
-      return { ...item };
+      return item;
     });
-    this.setState({ itemsList: itemsList });
+    this.setState({ itemsList: newItemsList });
     localStorage.setItem("itemsList", JSON.stringify(itemsList));
   };
 
   //4) crossing items out logic
   //this function is passed as props to Items
   checkItem = (key) => {
-    const itemsList = this.state.itemsList.map((item) => {
+    const itemsList = [...this.state.itemsList];
+    const newItemsList = itemsList.map((item) => {
       if (item.key === key) {
         item.isChecked = !item.isChecked;
       }
-      return { ...item };
+      return item;
     });
-    this.setState({ itemsList: itemsList });
+    this.setState({ itemsList: newItemsList });
     localStorage.setItem("itemsList", JSON.stringify(itemsList));
   };
   //5) logic to clear all items
