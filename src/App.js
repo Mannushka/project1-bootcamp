@@ -11,7 +11,7 @@ class App extends React.Component {
       <div>
         <Container className="App mt-5 col-11 col-md-6 col-lg-5  align-items-center">
           <Stack gap={2}>
-            <div className="header">My shopping list</div>
+            <div className="header mt-4">My shopping list</div>
             <ItemsList />
           </Stack>
         </Container>
