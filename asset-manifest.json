@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.css": "/Mannushka/project1-bootcamp/static/css/main.1ac5e563.css",
-    "main.js": "/Mannushka/project1-bootcamp/static/js/main.b353901b.js",
-    "index.html": "/Mannushka/project1-bootcamp/index.html",
-    "main.1ac5e563.css.map": "/Mannushka/project1-bootcamp/static/css/main.1ac5e563.css.map",
-    "main.b353901b.js.map": "/Mannushka/project1-bootcamp/static/js/main.b353901b.js.map"
+    "main.css": "/project1-bootcamp/static/css/main.1ac5e563.css",
+    "main.js": "/project1-bootcamp/static/js/main.b353901b.js",
+    "index.html": "/project1-bootcamp/index.html",
+    "main.1ac5e563.css.map": "/project1-bootcamp/static/css/main.1ac5e563.css.map",
+    "main.b353901b.js.map": "/project1-bootcamp/static/js/main.b353901b.js.map"
   },
   "entrypoints": [
     "static/css/main.1ac5e563.css",
