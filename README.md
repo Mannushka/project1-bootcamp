@@ -41,10 +41,19 @@ To install and launch the app, you will need NodeJS v16+
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). In the project directory, you can run:
 
+### `npm install`
+
+to install all required dependencies
+
 ### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+to run the app in the development mode.
+
+Then open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
+
+## Deployment link
+
+The project is deployed on Git Hub Pages at https://mannushka.github.io/project1-bootcamp/
